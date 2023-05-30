@@ -75,6 +75,10 @@ namespace iCalc_Engineering_Edition
                 }
                 if (sign.Contains(inputted_button))
                 {
+                    if (isFunc != 0)
+                    {
+                        current += inputted_button;
+                    }
                     if (!isLabelUsed)
                     {
                         isLabelUsed = true;
@@ -106,9 +110,9 @@ namespace iCalc_Engineering_Edition
             else if (inputted_button == ")")
             {
                 box.Text += inputted_button;
-                if (isFromArr)
-                {
-                    
+                while (isFunc !=0) {
+                    switch (previous)
+                    { }
                 }
                 isFromArr = false;
             }
