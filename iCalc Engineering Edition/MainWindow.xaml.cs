@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NCalc;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -37,14 +38,15 @@ namespace iCalc_Engineering_Edition
         {
            
             Button button = (Button)sender;
+#pragma warning disable CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
             string inputted_button = button.Content.ToString();
-
+#pragma warning restore CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
             if (inputted_button == "=")
             {
                 try
                 {
                     //input = input.Replace("sin", "Math.Sin").Replace("cos", "Math.Cos").Replace("tg", "Math.Tan");
-                    var result = EvaluateExpression(input);
+                    var result = new DataTable().Compute(input, null);
                     box.Text = result.ToString();
                     label.Content = "";
                 }catch(Exception) {
@@ -78,7 +80,7 @@ namespace iCalc_Engineering_Edition
             else if (arr.Contains(inputted_button))
             {
                 box.Text += inputted_button + '(';
-                input += inputted_button + '(';
+                input += inputted_button;
                 isFromArr = true;
             }
             else if (inputted_button == "^")
@@ -89,43 +91,9 @@ namespace iCalc_Engineering_Edition
             else if (inputted_button == ")")
             {
                 box.Text += inputted_button;
-                
+
             }
 
-        }
-        private double EvaluateExpression(string expression)
-        {   
-            NCalc.Expression expr = new NCalc.Expression(expression);
-            expr.EvaluateFunction += EvaluateFunction;
-            return Convert.ToDouble(expr.Evaluate());
-        }
-            
-        private void EvaluateFunction(string name, NCalc.FunctionArgs args)
-        {
-            if (name == "sin")
-            {
-                double value = Convert.ToDouble(args.Parameters[0].Evaluate());
-                args.Result = Math.Sin(value);
-            }
-            else if (name == "cos")
-            {
-                double value = Convert.ToDouble(args.Parameters[0].Evaluate());
-                args.Result = Math.Cos(value);
-            }
-            else if (name == "tan")
-            {
-                double value = Convert.ToDouble(args.Parameters[0].Evaluate());
-                args.Result = Math.Tan(value);
-            }
-            else if (name == "sqrt")
-            {
-                double value = Convert.ToDouble(args.Parameters[0].Evaluate());
-                args.Result = Math.Sqrt(value);
-            }
-            else
-            {
-                throw new ArgumentException("Unknown function: " + name);
-            }
         }
         private void Clean_Click(object sender, RoutedEventArgs e)
         {
