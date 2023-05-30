@@ -1,0 +1,65 @@
+﻿<Window x:Class="iCalc_Engineering_Edition.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iCalc_Engineering_Edition"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="label" Grid.Row="0" VerticalAlignment="Center" Height="30" Margin="10,0,0,15" >Start entering here:</Label>
+        <TextBox  Name="box" Grid.Row="0" VerticalAlignment="Bottom" MaxLength="9" Grid.ColumnSpan="5" Margin="15,15,80,15" Foreground="Black" ></TextBox>
+        <Button Grid.Row="1" Margin="25" FontSize="10" Click="Button_Click" >1</Button>
+        <!--<Button Name="Remove" Grid.Row="0" Grid.Column="4" Margin="15,0,25,15" Height="28" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Click="Remove_Click" >&lt;=</Button>-->
+        <Button Grid.Row="1" Grid.Column="1" Margin="25" FontSize="10" Click="Button_Click" >2</Button>
+        <Button Grid.Row="1" Grid.Column="2" Margin="25" FontSize="10" Click="Button_Click" >3</Button>
+        <Button Grid.Row="2" Margin="25" FontSize="10" Click="Button_Click" >4</Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="25" FontSize="10" Click="Button_Click" >5</Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="25" FontSize="10" Click="Button_Click" >6</Button>
+        <Button Grid.Row="3" Margin="25" FontSize="10" Click="Button_Click">7</Button>
+        <Button Grid.Row="3"  Grid.Column="1" Margin="25" FontSize="10" Click="Button_Click">8</Button>
+        <Button Grid.Row="3"  Grid.Column="2" Margin="25" FontSize="10" Click="Button_Click">9</Button>
+        <Button Grid.Row="4"  Grid.Column="1" Margin="25" FontSize="10" Click="Button_Click">0</Button>
+
+        <Button Name="plus" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">+</Button>
+        <Button Name="stepin" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">^</Button>
+        <Button Name="percent" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">%</Button>
+        <Button Name="cos" Grid.Row="2" HorizontalAlignment="Left" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">cos</Button>
+        <Button Name="sin" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">sin</Button>
+        <Button Name="tg" Grid.Row="3" HorizontalAlignment="Left" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">tg</Button>
+        <Button Name="ctg" Grid.Row="3" HorizontalAlignment="Right" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">ctg</Button>
+
+
+
+        <Button Name="minus" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">-</Button>
+        <Button Name="multiplication" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">*</Button>
+        <Button Name="division" Grid.Row="2" HorizontalAlignment="Left" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">/</Button>
+        <Button Name="znak" Grid.Row="3" HorizontalAlignment="Left" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">-/+</Button>
+        <Button Name="point" Grid.Row="3" HorizontalAlignment="right" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">.</Button>
+        <Button Name="log" Grid.Row="4" HorizontalAlignment="Left" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">log</Button>
+        <Button Name="Factorial" Grid.Row="4" HorizontalAlignment="Right" Grid.Column="3" Margin="25" Width="50" FontSize="10" Click="Button_Click">Fac</Button>
+        <Button Name="Sqrt" Grid.Row="4" HorizontalAlignment="Left" Grid.Column="4" Margin="25" Width="50" FontSize="10" Click="Button_Click">Sqrt</Button>
+        <Button Name="open" Grid.Row="4" HorizontalAlignment="Left" Grid.Column="0" Margin="25" Width="50" FontSize="10" Click="Button_Click">(</Button>
+        <Button Name="close" Grid.Row="4" HorizontalAlignment="Right" Grid.Column="0" Margin="25" Width="50" FontSize="10" Click="Button_Click">)</Button>
+
+
+        <Button Name="equal" Grid.Row="4" HorizontalAlignment="Right" Grid.Column="4" Margin="0,10,25,25" Width="50" FontSize="10" Click="Button_Click">=</Button>
+        <Button Name="Clean" Grid.Row="4"  Grid.Column="2"  Margin="25" FontSize="10" Click="Clean_Click">CLEAN</Button>
+
+    </Grid>
+</Window>
