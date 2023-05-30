@@ -27,20 +27,28 @@ namespace iCalc_Engineering_Edition
         string []arr = {"sin","cos", "tg", "ctg", "arcsin", "arccos", "arctg", "arcctg", "Sqrt"};
 
         string input = "";
+        string current = "";
+        string previous = "";
 
         bool isLabelUsed = false;
         bool isFromArr = false;
+        int isFunc = 0;
         public MainWindow()
         {
             InitializeComponent();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
            
             Button button = (Button)sender;
-#pragma warning disable CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
             string inputted_button = button.Content.ToString();
-#pragma warning restore CS8600 // Преобразование литерала, допускающего значение NULL или возможного значения NULL в тип, не допускающий значение NULL.
+
+            if (isFromArr)
+            {
+                current += inputted_button;
+            }
+
             if (inputted_button == "=")
             {
                 try
@@ -58,6 +66,10 @@ namespace iCalc_Engineering_Edition
             {
                 if (numbers.Contains(inputted_button))
                 {
+                    if (isFunc != 0)
+                    {
+                        current += inputted_button;
+                    }
                     input += inputted_button;
                     box.Text += inputted_button;
                 }
@@ -82,6 +94,9 @@ namespace iCalc_Engineering_Edition
                 box.Text += inputted_button + '(';
                 input += inputted_button;
                 isFromArr = true;
+                isFunc += 1;
+
+                previous = inputted_button;
             }
             else if (inputted_button == "^")
             {
@@ -91,10 +106,15 @@ namespace iCalc_Engineering_Edition
             else if (inputted_button == ")")
             {
                 box.Text += inputted_button;
-
+                if (isFromArr)
+                {
+                    
+                }
+                isFromArr = false;
             }
 
         }
+        
         private void Clean_Click(object sender, RoutedEventArgs e)
         {
             box.Text = "";
